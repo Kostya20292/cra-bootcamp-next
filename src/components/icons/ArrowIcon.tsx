@@ -1,0 +1,15 @@
+import type { SVGProps } from 'react';
+
+const ArrowIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 2315 1024"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    {...props}
+  >
+    <path d="M2273.311 539.007c26.076-26.081 26.076-68.363 0-94.444l-425.005-425.002c-26.081-26.08-68.363-26.08-94.444 0s-26.081 68.365 0 94.445l377.78 377.781-377.78 377.776c-26.081 26.081-26.081 68.368 0 94.448 26.081 26.076 68.363 26.076 94.444 0l425.005-425.005zM0 491.787v66.783h2226.087v-133.567h-2226.087v66.784z" />
+  </svg>
+);
+
+export default ArrowIcon;

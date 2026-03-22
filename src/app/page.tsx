@@ -1,6 +1,8 @@
+import Footer from '@/components/footer/Footer';
+
 const Home = () => (
   <main>
-    <h1>CRA Bootcamp</h1>
+    <Footer />
   </main>
 );
 
