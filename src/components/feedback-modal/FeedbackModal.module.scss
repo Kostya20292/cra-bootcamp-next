@@ -1,0 +1,596 @@
+@use '../../styles/breakpoints' as bp;
+@use '../../styles/variables' as v;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: v.$z-index-feedback-overlay;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 16px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: v.$color-overlay-scrim;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dialog {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: v.$feedback-dialog-max-width-mobile;
+  min-height: v.$feedback-dialog-min-height-mobile;
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 0;
+  overflow: visible;
+  border: 1px solid v.$color-purp;
+  border-radius: 12px;
+  background: v.$color-white;
+  color: v.$color-text;
+  box-shadow: 0 24px 48px rgb(12 9 14 / 12%);
+}
+
+.inner {
+  padding: 60px 20px 32px;
+  overflow: visible;
+}
+
+.innerForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.close {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 12px;
+  font-family: 'HalvarBreit', sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  color: v.$color-purp;
+  text-align: right;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.closeMark {
+  display: block;
+  line-height: normal;
+}
+
+.mark {
+  flex-shrink: 0;
+  color: v.$color-purp;
+}
+
+.hint {
+  width: 100%;
+  margin: 0;
+  font-family: 'Stolzl', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: normal;
+  white-space: normal;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.error {
+  margin: 0;
+  font-family: 'Stolzl', sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  color: v.$color-error;
+  text-align: center;
+}
+
+.asterisk {
+  color: v.$color-purp;
+}
+
+.hint .asterisk {
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 100%;
+  overflow: visible;
+}
+
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.fieldShell {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 32px;
+  padding: 7px 12px;
+  border: 1px solid v.$color-border-field;
+  border-radius: 8px;
+  background: v.$color-white;
+}
+
+.fieldShellSelect {
+  gap: 0;
+  padding: 0;
+  font-size: 14px;
+
+  .methodOpenTrigger {
+    font-size: 1em;
+  }
+
+  .selectRequiredMark {
+    flex-shrink: 0;
+    min-width: 1.1em;
+    font-family: 'Stolzl', sans-serif;
+    font-size: 1.1em;
+    font-weight: 400;
+    line-height: normal;
+    color: v.$color-purp;
+    text-align: center;
+  }
+}
+
+.methodField {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: visible;
+  border: 1px solid v.$color-border-field;
+  border-radius: 8px;
+  background: v.$color-white;
+  min-height: 32px;
+}
+
+.methodField:focus-within {
+  border-color: v.$color-purp;
+}
+
+.methodFieldOpen {
+  z-index: 20;
+  border-color: v.$color-purp;
+  border-bottom: 1px solid transparent;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.methodField.methodFieldOpen:focus-within {
+  border-bottom-color: transparent;
+}
+
+.methodOpenTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 7px 8px 7px 12px;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: 'Stolzl', sans-serif;
+  font-weight: 300;
+  line-height: normal;
+  color: v.$color-text;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.methodOpenTrigger:focus {
+  outline: none;
+}
+
+.methodOpenTrigger:focus-visible {
+  outline: none;
+}
+
+.methodTriggerInner {
+  display: contents;
+}
+
+.methodTriggerPlaceholder {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: min-content;
+  font-weight: 300;
+  color: v.$color-text;
+  white-space: nowrap;
+}
+
+.methodTriggerValue {
+  flex-shrink: 0;
+  min-width: min-content;
+  font-weight: 300;
+  color: v.$color-text;
+  white-space: nowrap;
+}
+
+.methodDivider {
+  flex-shrink: 0;
+  height: 1px;
+  margin: 0 8px 0 12px;
+  background: rgb(158 19 224 / 28%);
+}
+
+.methodListDrop {
+  position: absolute;
+  top: 100%;
+  right: -1px;
+  left: -1px;
+  z-index: 21;
+  box-sizing: border-box;
+  border: 1px solid v.$color-purp;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  background: v.$color-white;
+  box-shadow: 0 12px 28px rgb(12 9 14 / 14%);
+}
+
+.methodList {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0 8px;
+  max-height: min(40vh, 200px);
+  overflow-y: auto;
+}
+
+.methodOption {
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 8px 0 12px;
+  font-family: 'Stolzl', sans-serif;
+  font-weight: 300;
+  line-height: normal;
+  color: v.$color-text;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.methodOptionSelected {
+  font-weight: 400;
+}
+
+.methodOptionHighlighted {
+  background: rgb(158 19 224 / 8%);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .methodOption:hover {
+    background: rgb(158 19 224 / 8%);
+  }
+}
+
+.fieldShell:focus-within {
+  border-color: v.$color-purp;
+}
+
+.contactControl {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.contactInputMuted {
+  color: transparent;
+  caret-color: transparent;
+}
+
+.contactHint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0;
+  pointer-events: none;
+  font-family: 'Stolzl', sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.contactHintText {
+  flex-shrink: 0;
+  font-weight: 300;
+  color: v.$color-text;
+  white-space: nowrap;
+}
+
+.contactStar {
+  flex-shrink: 0;
+  font-weight: 400;
+  font-size: 1.1em;
+  color: v.$color-purp;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  margin: 0;
+  font-family: 'Stolzl', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: normal;
+  color: v.$color-text;
+  white-space: nowrap;
+  background: transparent;
+  box-shadow: none;
+}
+
+.input::placeholder {
+  color: v.$color-text;
+  opacity: 1;
+}
+
+.contactInput {
+  display: block;
+  width: 100%;
+  flex: none;
+}
+
+.selectIcon {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  margin-left: 0;
+  color: v.$color-purp;
+  transition: transform 0.2s ease;
+}
+
+.selectIconOpen {
+  transform: rotate(180deg);
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 40px 10px;
+  border-radius: 8px;
+  background: v.$color-yellow;
+  font-family: 'HalvarBreit', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: normal;
+  color: v.$color-text;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .submit:hover:not(:disabled) {
+    background: v.$color-purp;
+    color: v.$color-white;
+  }
+}
+
+.submit:focus-visible:not(:disabled) {
+  background: v.$color-purp;
+  color: v.$color-white;
+  outline: 2px solid v.$color-white;
+  outline-offset: 2px;
+}
+
+.submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .submit {
+    transition: none;
+  }
+
+  .selectIcon {
+    transition: none;
+  }
+}
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 60px 20px 32px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.successText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 321px;
+  min-width: 0;
+  padding-bottom: 10px;
+  font-style: normal;
+  line-height: normal;
+  color: v.$color-text;
+  text-align: center;
+}
+
+.successTitle {
+  margin: 0;
+  max-width: 100%;
+  font-family: 'HalvarBreit', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.successTitleBreak {
+  display: inline;
+}
+
+.successBody {
+  margin: 0;
+  max-width: 100%;
+  font-family: 'Stolzl', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  overflow-wrap: break-word;
+}
+
+.successBodyLine {
+  display: inline;
+}
+
+.successBodyBreak {
+  display: inline;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (width >= bp.$min-width-tablet) {
+  .dialog {
+    display: flex;
+    flex-direction: column;
+    max-width: v.$feedback-dialog-max-width-desktop;
+    height: #{'min(#{v.$feedback-dialog-height-desktop}, calc(100dvh - 32px))'};
+    min-height: unset;
+    overflow: hidden;
+  }
+
+  .inner {
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 60px 30px 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .fields {
+    display: grid;
+    align-items: start;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 7px;
+  }
+
+  .hint {
+    grid-column: 1 / -1;
+    font-size: 16px;
+    text-align: start;
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+
+  .fieldShell {
+    min-height: 36px;
+  }
+
+  .fieldName {
+    grid-column: 1 / -1;
+  }
+
+  .fieldMethod {
+    grid-column: 1 / 3;
+  }
+
+  .fieldContact {
+    grid-column: 3 / 6;
+  }
+
+  .input {
+    font-size: 16px;
+  }
+
+  .fieldShellSelect {
+    font-size: 16px;
+  }
+
+  .methodField {
+    min-height: 36px;
+  }
+
+  .methodOpenTrigger {
+    padding: 7px 8px 7px 12px;
+  }
+
+  .methodOption {
+    font-size: 16px;
+    min-height: 36px;
+  }
+
+  .contactHint {
+    font-size: 16px;
+  }
+
+  .success {
+    gap: 40px;
+    padding: 60px 30px 40px;
+  }
+
+  .successText {
+    gap: 20px;
+    max-width: 512px;
+    margin: 0 auto;
+  }
+
+  .successTitle {
+    font-size: 20px;
+  }
+
+  .successTitleBreak {
+    display: none;
+  }
+
+  .successBody {
+    font-family: 'HalvarBreit', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .successBodyBreak {
+    display: none;
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "hintBefore": "Fields with an asterisk (",
+  "hintAfter": ") are mandatory",
+  "namePlaceholder": "Your Name",
+  "contactMethodLabel": "Contact method",
+  "contactPlaceholder": "Your Contact",
+  "submit": "Submit",
+  "successTitleLine1": "We have received",
+  "successTitleLine2": "your application!",
+  "successLine1": "We will process your request ",
+  "successLine2": "and get in touch with you",
+  "done": "Done",
+  "close": "Close dialog",
+  "formTitle": "Contact form",
+  "successTitle": "Application sent",
+  "selectPlaceholder": "Contact Method",
+  "telegram": "Telegram",
+  "whatsapp": "Whatsapp",
+  "email": "Email",
+  "requestFailed": "Request failed",
+  "networkError": "Network error"
+}
