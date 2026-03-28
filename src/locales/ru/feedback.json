@@ -1,0 +1,22 @@
+{
+  "hintBefore": "Поля со звёздочкой (",
+  "hintAfter": ") обязательны для заполнения",
+  "namePlaceholder": "Ваше имя",
+  "contactMethodLabel": "Способ связи",
+  "contactPlaceholder": "Ваш контакт",
+  "submit": "Отправить",
+  "successTitleLine1": "Мы получили",
+  "successTitleLine2": "вашу заявку!",
+  "successLine1": "Мы обработаем ваш запрос ",
+  "successLine2": "и свяжемся с вами",
+  "done": "Готово",
+  "close": "Закрыть окно",
+  "formTitle": "Форма обратной связи",
+  "successTitle": "Заявка отправлена",
+  "selectPlaceholder": "Способ связи",
+  "telegram": "Telegram",
+  "whatsapp": "Whatsapp",
+  "email": "Email",
+  "requestFailed": "Не удалось выполнить запрос",
+  "networkError": "Ошибка сети"
+}

@@ -14,6 +14,15 @@ $color-yellow: #fee97d;
 $color-overlay: rgb(0 0 0 / 60%);
 $color-purple-border: rgba(158, 19, 224, 0.3);
 
+// Colors for modal
+$color-purp: #9e13e0;
+$color-text: #0c090e;
+$color-border-field: rgb(158 19 224 / 30%);
+$color-yellow: #fee97d;
+$color-white: #fff;
+$color-overlay-scrim: rgb(12 9 14 / 50%);
+$color-error: #b00020;
+
 // Gradients
 $gradient-info-card: linear-gradient(131.28deg, $color-purple-light 5.95%, $color-purple-dark 98.41%);
 $gradient-bg: linear-gradient(121.64deg, rgb(220 132 0) 3.49%, rgb(86 0 128) 49.69%, rgb(34 0 50) 91.86%);
@@ -23,12 +32,20 @@ $container-max-width: 1340px;
 $container-padding: 50px;
 $container-padding-mobile: 16px;
 
+// Modal
+$feedback-dialog-max-width-mobile: 361px;
+$feedback-dialog-max-width-desktop: 558px;
+$feedback-dialog-height-desktop: 387px;
+$feedback-dialog-min-height-mobile: 500px;
+
 // Z-index layers
 $z-background: -1;
 $z-content: 1;
 $z-header: 10;
 $z-overlay: 20;
 $z-modal: 30;
+
+$z-index-feedback-overlay: 1000;
 
 // Border radius
 $radius-sm: 8px;
