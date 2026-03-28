@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import 'normalize.css';
+import 'modern-css-reset';
 import '@/styles/globals.scss';
 
 export const metadata: Metadata = {
