@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@asouei/safe-fetch':
+        specifier: ^1.0.0
+        version: 1.0.0
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.29.0)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(sass@1.98.0)
@@ -56,6 +59,10 @@ importers:
         version: 5.9.3
 
 packages:
+
+  '@asouei/safe-fetch@1.0.0':
+    resolution: {integrity: sha512-KRo9btDUPQzHGb5W0YmQwyYTMFSI9dpgSTAJGb9Og42bcm2LvAR/dGbQsY5CaAhu4bXk1DUhDHKWTeqEBK+54A==}
+    engines: {node: '>=18'}
 
   '@babel/code-frame@7.29.0':
     resolution: {integrity: sha512-9NhCeYjq9+3uxgdtp20LSiJXJvN0FeCtNGpJxuMFZ1Kv3cWUNb6DOhJwUvcVCzKGR66cw4njwM6hrJLqgOwbcw==}
@@ -1903,6 +1910,8 @@ packages:
     resolution: {integrity: sha512-rftlrkhHZOcjDwkGlnUtZZkvaPHCsDATp4pGpuOOMDaTdDDXF91wuVDJoWoPsKX/3YPQ5fHuF3STjcYyKr+Qhg==}
 
 snapshots:
+
+  '@asouei/safe-fetch@1.0.0': {}
 
   '@babel/code-frame@7.29.0':
     dependencies:
