@@ -1,0 +1,74 @@
+$yellow: #fee97d;
+
+.footer {
+  display: none;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+}
+
+.socialsList {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.socialLink {
+  display: block;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  color: $yellow;
+  text-transform: uppercase;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $yellow;
+    outline-offset: 2px;
+  }
+}
+
+.scrollToTop {
+  display: flex;
+  align-items: flex-end;
+  gap: 15px;
+  padding: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  color: $yellow;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $yellow;
+    outline-offset: 2px;
+  }
+}
+
+.scrollToTopLabel {
+  text-decoration: underline;
+}
+
+.arrowIcon {
+  width: 30px;
+  flex-shrink: 0;
+  transform: rotate(-90deg);
+}
