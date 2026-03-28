@@ -2,18 +2,12 @@
 @use 'breakpoints' as *;
 
 .container {
-  
-  // максимальная ширина контейнера
-  --container-width: 1440px;
-  // отступы контейнера
-  --padding-inline: 16px;
-  @media (min-width: $min-width-tablet) {
-    --padding-inline: 50px;
-  }
-
   width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  max-width: var(--container-width);
-  padding-inline: var(--padding-inline);
+  max-width: $container-max-width;
+  padding-inline: $container-padding-mobile;
+  @media (min-width: $min-width-tablet) {
+    padding-inline: $container-padding;
+  }
 }

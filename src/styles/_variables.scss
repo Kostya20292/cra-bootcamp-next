@@ -28,7 +28,7 @@ $gradient-bg: linear-gradient(
 );
 
 // Container
-$container-max-width: 1340px;
+$container-max-width: 1440px;
 $container-padding: 50px;
 $container-padding-mobile: 16px;
 
@@ -56,14 +56,3 @@ $radius-pill: 100px;
 
 // Transitions
 $transition-base: 0.3s ease;
-
-// Container mixin
-@mixin container {
-  max-width: calc($container-max-width + $container-padding * 2);
-  padding-inline: $container-padding;
-  margin-inline: auto;
-
-  @media (width < 1280px) {
-    padding-inline: $container-padding-mobile;
-  }
-}
