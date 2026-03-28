@@ -1,0 +1,729 @@
+@use 'variables' as v;
+@use 'breakpoints' as bp;
+
+.section {
+  @include v.full-page-slide-shell;
+  color: v.$color-white;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: v.$z-background;
+  background-color: v.$color-dark-bg;
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: v.$gradient-bg;
+
+  @include bp.fullpage-narrow {
+    background:
+      linear-gradient(90deg, rgb(86 0 128) 0%, rgb(86 0 128) 100%),
+      linear-gradient(105.54deg, rgb(149 0 220) 3.37%, rgb(86 0 128) 56.37%, rgb(34 0 50) 102.54%);
+  }
+}
+
+.bgPatternWrap {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  contain: layout;
+  z-index: 0;
+}
+
+.bgPatternImg {
+  position: absolute;
+  top: -40px;
+  right: -11px;
+  left: auto;
+  width: min(1462px, 102%);
+  height: auto;
+  max-width: none;
+  opacity: 1;
+
+  @include bp.fullpage-narrow {
+    top: -28px;
+    left: -72px;
+    right: auto;
+    width: 1014px;
+    height: auto;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: v.$z-content;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding-top: 10px;
+  padding-bottom: 40px;
+  justify-content: center;
+
+  @include v.container;
+
+  @include bp.fullpage-wide-up {
+    justify-content: stretch;
+    padding-top: clamp(40px, 6vh, 88px);
+    padding-bottom: 20px;
+  }
+
+  @include bp.fullpage-wide-short {
+    padding-top: clamp(16px, 3vh, 40px);
+  }
+
+  @include bp.fullpage-wide-very-short {
+    padding-top: 12px;
+  }
+
+  @include bp.desktop {
+    padding-bottom: 46px;
+  }
+
+  @include bp.desktop-height-short {
+    padding-bottom: 20px;
+  }
+
+  @media (width >= bp.$breakpoint-fullpage-wide) and (width < bp.$breakpoint-laptop) {
+    padding-inline: 30px;
+  }
+}
+
+.mobileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+
+  @include bp.fullpage-wide-up {
+    display: none;
+  }
+}
+
+.mobileLogo {
+  width: 32px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.menuButton {
+  padding: 10px;
+  font-family: v.$font-primary;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: v.$color-yellow;
+  text-align: right;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid v.$color-yellow;
+    outline-offset: 2px;
+  }
+}
+
+.eyebrow {
+  display: none;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 0.9;
+  color: v.$color-yellow;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: -1.74px;
+
+  @include bp.fullpage-wide-up {
+    display: block;
+    align-self: flex-end;
+    flex-shrink: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  @include bp.fullpage-wide-short {
+    margin-bottom: 12px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    margin-bottom: 8px;
+  }
+
+  @include bp.desktop {
+    margin-bottom: 24px;
+    font-size: 40px;
+  }
+
+  @include bp.desktop-height-short {
+    margin-bottom: 12px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 0 1 auto;
+
+  @include bp.fullpage-wide-up {
+    flex: 1;
+    min-height: 0;
+    gap: 28px;
+  }
+
+  @include bp.fullpage-wide-short {
+    gap: 16px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    gap: 12px;
+  }
+
+  @include bp.desktop {
+    gap: 32px;
+  }
+
+  @include bp.desktop-height-short {
+    gap: 20px;
+  }
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  order: 1;
+  max-width: 361px;
+
+  @include bp.fullpage-wide-up {
+    position: relative;
+    top: 0;
+    flex: 0 0 auto;
+    gap: 20px;
+    order: unset;
+    width: 100%;
+    max-width: 511px;
+  }
+
+  @media (width >= bp.$breakpoint-fullpage-wide) and (height >= 880px) {
+    top: 75px;
+  }
+
+  @include bp.fullpage-wide-short {
+    gap: 12px;
+  }
+
+  @include bp.desktop {
+    max-width: 746px;
+  }
+}
+
+.visualBand {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include bp.fullpage-narrow {
+    order: 3;
+  }
+
+  @include bp.fullpage-wide-up {
+    flex: 0 0 auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 0;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+}
+
+.title {
+  margin: 0;
+  font-family: v.$font-primary;
+  font-weight: 700;
+  line-height: 0.9;
+  color: v.$color-white;
+  text-transform: none;
+}
+
+.titleDesktop {
+  display: none;
+  font-size: 50px;
+  line-height: 50px;
+
+  @include bp.desktop {
+    display: block;
+  }
+
+  @include bp.desktop-height-short {
+    font-size: 40px;
+    line-height: 42px;
+  }
+
+  @include bp.desktop-height-very-short {
+    font-size: 34px;
+    line-height: 36px;
+  }
+}
+
+.titleLaptop {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  font-size: 40px;
+  line-height: 40px;
+
+  @include bp.fullpage-wide-up {
+    display: flex;
+  }
+
+  @include bp.fullpage-wide-short {
+    font-size: 32px;
+    line-height: 34px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    font-size: 28px;
+    line-height: 30px;
+  }
+
+  @include bp.desktop {
+    display: none;
+  }
+}
+
+.titleLaptopLine {
+  display: block;
+}
+
+.titleLaptopSecond {
+  display: block;
+}
+
+.titleMobile {
+  display: block;
+  font-size: 32px;
+  line-height: 0.9;
+
+  @include bp.fullpage-wide-up {
+    display: none;
+  }
+}
+
+.accent {
+  color: v.$color-yellow;
+}
+
+.subtitle {
+  margin: 0;
+  font-family: v.$font-primary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: v.$color-white;
+
+  @include bp.fullpage-narrow {
+    max-width: 330px;
+  }
+
+  @include bp.fullpage-wide-up {
+    max-width: 510px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  @include bp.desktop {
+    max-width: 563px;
+    font-size: 20px;
+  }
+
+  @include bp.desktop-height-short {
+    font-size: 17px;
+    line-height: 22px;
+  }
+
+  @include bp.desktop-height-very-short {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @include bp.fullpage-wide-short {
+    line-height: 22px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    font-size: 15px;
+    line-height: 20px;
+  }
+}
+
+.figure {
+  display: none;
+  justify-content: center;
+
+  @include bp.fullpage-wide-up {
+    display: flex;
+    flex-shrink: 1;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-block: 0;
+    min-width: 0;
+  }
+}
+
+.snakeImg {
+  width: clamp(220px, 28vw, 332px);
+  height: auto;
+
+  @include bp.fullpage-wide-up {
+    width: 332px;
+    max-width: 332px;
+    max-height: min(332px, 42vh);
+    object-fit: contain;
+  }
+
+  @include bp.fullpage-wide-short {
+    max-height: min(280px, 34vh);
+  }
+
+  @include bp.fullpage-wide-very-short {
+    max-height: min(220px, 28vh);
+  }
+
+  @include bp.desktop {
+    width: 390px;
+    max-width: none;
+    max-height: min(390px, 42vh);
+  }
+
+  @include bp.desktop-height-short {
+    max-height: min(300px, 34vh);
+  }
+
+  @include bp.desktop-height-very-short {
+    max-height: min(240px, 28vh);
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  order: unset;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  @include bp.fullpage-wide-up {
+    flex: 0 0 511px;
+    width: 511px;
+    min-width: 0;
+  }
+
+  @include bp.fullpage-wide-short {
+    gap: 12px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    gap: 8px;
+  }
+
+  @include bp.desktop {
+    flex-basis: 563px;
+    width: 563px;
+    margin-top: 13px;
+  }
+
+  @include bp.desktop-height-short {
+    margin-top: 6px;
+  }
+
+  @include bp.desktop-height-very-short {
+    margin-top: 0;
+  }
+}
+
+.card {
+  padding: 16px;
+  margin: 0;
+  background-color: v.$color-purple;
+  border-radius: v.$radius-sm;
+
+  @include bp.fullpage-wide-up {
+    padding: 20px;
+  }
+
+  @include bp.fullpage-wide-short {
+    padding: 14px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    padding: 12px;
+  }
+}
+
+.cardTextDesktop,
+.cardTextMobile {
+  margin: 0;
+  font-family: v.$font-primary;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  color: v.$color-white;
+
+  @include bp.fullpage-wide-short {
+    font-size: 17px;
+    line-height: 21px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    font-size: 15px;
+    line-height: 19px;
+  }
+}
+
+.cardTextDesktop {
+  display: none;
+
+  @include bp.fullpage-wide-up {
+    display: block;
+  }
+}
+
+.cardTextMobile {
+  @include bp.fullpage-wide-up {
+    display: none;
+  }
+}
+
+.marquee {
+  order: 2;
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  @include bp.fullpage-wide-up {
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    align-self: stretch;
+    order: 0;
+    margin-top: clamp(8px, 4.5vh, 40px);
+    margin-bottom: 0;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    margin-top: 8px;
+  }
+}
+
+.marqueeFrame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 8px;
+  transform: rotate(1deg);
+
+  @include bp.fullpage-wide-up {
+    padding-block: 12px;
+  }
+
+  @include bp.fullpage-wide-short {
+    padding-block: 8px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    padding-block: 6px;
+  }
+
+  @include bp.desktop {
+    padding-block: 14px;
+  }
+
+  @include bp.desktop-height-short {
+    padding-block: 9px;
+  }
+
+  @include bp.desktop-height-very-short {
+    padding-block: 7px;
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    height: 1.5px;
+    margin-inline: -8px;
+    content: '';
+    background-color: v.$color-yellow;
+
+    @include bp.fullpage-wide-up {
+      height: 2.25px;
+      margin-inline: -24px;
+    }
+
+    @include bp.desktop {
+      height: 3px;
+      margin-inline: -40px;
+    }
+  }
+
+  &::before {
+    inset: 0 0 auto 0;
+  }
+
+  &::after {
+    inset: auto 0 0 0;
+  }
+}
+
+.marqueeTrack {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.marqueeInner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 25px;
+  align-items: center;
+  width: max-content;
+
+  @include bp.fullpage-wide-up {
+    gap: 38px;
+  }
+
+  @include bp.fullpage-wide-short {
+    gap: 28px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    gap: 22px;
+  }
+
+  @include bp.desktop {
+    gap: 50px;
+  }
+
+  @include bp.desktop-height-short {
+    gap: 36px;
+  }
+
+  @include bp.desktop-height-very-short {
+    gap: 28px;
+  }
+}
+
+.marqueeSegment {
+  display: flex;
+  flex-shrink: 0;
+  gap: 25px;
+  align-items: center;
+
+  @include bp.fullpage-wide-up {
+    gap: 38px;
+  }
+
+  @include bp.fullpage-wide-short {
+    gap: 28px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    gap: 22px;
+  }
+
+  @include bp.desktop {
+    gap: 50px;
+  }
+
+  @include bp.desktop-height-short {
+    gap: 36px;
+  }
+
+  @include bp.desktop-height-very-short {
+    gap: 28px;
+  }
+}
+
+.marqueeText {
+  font-family: v.$font-primary;
+  font-size: 35px;
+  font-weight: 300;
+  line-height: 1;
+  color: v.$color-yellow;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+  @include bp.fullpage-wide-up {
+    font-size: 52.5px;
+  }
+
+  @include bp.fullpage-wide-short {
+    font-size: 38px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    font-size: 32px;
+  }
+
+  @include bp.desktop {
+    font-size: 70px;
+  }
+
+  @include bp.desktop-height-short {
+    font-size: 48px;
+  }
+
+  @include bp.desktop-height-very-short {
+    font-size: 40px;
+  }
+}
+
+.marqueeMark {
+  flex-shrink: 0;
+  color: v.$color-yellow;
+  width: 30px;
+  height: 27px;
+
+  @include bp.fullpage-wide-up {
+    width: 45px;
+    height: 41px;
+  }
+
+  @include bp.fullpage-wide-short {
+    width: 34px;
+    height: 31px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    width: 28px;
+    height: 26px;
+  }
+
+  @include bp.desktop {
+    width: 60px;
+    height: 55px;
+  }
+
+  @include bp.desktop-height-short {
+    width: 42px;
+    height: 38px;
+  }
+
+  @include bp.desktop-height-very-short {
+    width: 36px;
+    height: 33px;
+  }
+}
