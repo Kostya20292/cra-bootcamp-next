@@ -56,22 +56,25 @@
 ### ESLint (v9, flat config)
 
 Пресеты:
+
 - `next/core-web-vitals` — React, React Hooks, jsx-a11y, Next.js
 - `next/typescript` — `@typescript-eslint`
 - `eslint-config-prettier` — отключает конфликты с Prettier
 
 Кастомные правила:
+
 - `no-console: warn` — предупреждение о console.log
 - `prefer-const: error` — только const если нет переназначения
 - `eqeqeq: error` — только === / !==
 - `no-var: error` — запрет var
 - `no-explicit-any: error` — запрет any
-- `no-unused-vars: error` — неиспользуемые переменные (кроме _-префикса)
+- `no-unused-vars: error` — неиспользуемые переменные (кроме \_-префикса)
 - `consistent-type-imports: warn` — import type {} для типов
 - `self-closing-comp: error` — `<Comp />` вместо `<Comp></Comp>`
 - `jsx-curly-brace-presence: error` — убирает лишние {'text'} → text
 
 Именование файлов (`eslint-plugin-check-file`):
+
 - Директории в src/ — kebab-case
 - src/components/ — PascalCase (ContactForm.tsx)
 - src/hooks/, utils/, lib/, store/, types/, constants/ — camelCase (useScroll.ts)
@@ -86,4 +89,3 @@
 
 - noImplicitAny, strictNullChecks, strictFunctionTypes
 - Проверка типов при сборке (next build)
-

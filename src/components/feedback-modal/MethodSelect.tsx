@@ -64,16 +64,12 @@ const MethodSelect = forwardRef<HTMLButtonElement, MethodSelectProps>(
       switch (event.key) {
         case 'ArrowDown': {
           event.preventDefault();
-          setHighlightedIndex((prev) =>
-            prev < METHOD_VALUES.length - 1 ? prev + 1 : 0,
-          );
+          setHighlightedIndex((prev) => (prev < METHOD_VALUES.length - 1 ? prev + 1 : 0));
           break;
         }
         case 'ArrowUp': {
           event.preventDefault();
-          setHighlightedIndex((prev) =>
-            prev > 0 ? prev - 1 : METHOD_VALUES.length - 1,
-          );
+          setHighlightedIndex((prev) => (prev > 0 ? prev - 1 : METHOD_VALUES.length - 1));
           break;
         }
         case 'Home': {

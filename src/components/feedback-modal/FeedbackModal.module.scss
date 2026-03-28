@@ -1,5 +1,5 @@
-@use '../../styles/breakpoints' as bp;
-@use '../../styles/variables' as v;
+@use 'breakpoints' as bp;
+@use 'variables' as v;
 
 .overlay {
   position: fixed;
@@ -27,10 +27,10 @@
   margin-bottom: auto;
   flex-shrink: 0;
   overflow: visible;
-  border: 1px solid v.$color-purp;
+  border: 1px solid v.$color-purple;
   border-radius: 12px;
   background: v.$color-white;
-  color: v.$color-text;
+  color: v.$color-dark;
   box-shadow: 0 24px 48px rgb(12 9 14 / 12%);
 }
 
@@ -61,7 +61,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  color: v.$color-purp;
+  color: v.$color-purple;
   text-align: right;
   text-transform: uppercase;
   white-space: nowrap;
@@ -74,7 +74,7 @@
 
 .mark {
   flex-shrink: 0;
-  color: v.$color-purp;
+  color: v.$color-purple;
 }
 
 .hint {
@@ -99,7 +99,7 @@
 }
 
 .asterisk {
-  color: v.$color-purp;
+  color: v.$color-purple;
 }
 
 .hint .asterisk {
@@ -129,7 +129,7 @@
   width: 100%;
   min-height: 32px;
   padding: 7px 12px;
-  border: 1px solid v.$color-border-field;
+  border: 1px solid v.$color-purple-border;
   border-radius: 8px;
   background: v.$color-white;
 }
@@ -150,7 +150,7 @@
     font-size: 1.1em;
     font-weight: 400;
     line-height: normal;
-    color: v.$color-purp;
+    color: v.$color-purple;
     text-align: center;
   }
 }
@@ -163,19 +163,19 @@
   min-width: 0;
   box-sizing: border-box;
   overflow: visible;
-  border: 1px solid v.$color-border-field;
+  border: 1px solid v.$color-purple-border;
   border-radius: 8px;
   background: v.$color-white;
   min-height: 32px;
 }
 
 .methodField:focus-within {
-  border-color: v.$color-purp;
+  border-color: v.$color-purple;
 }
 
 .methodFieldOpen {
   z-index: 20;
-  border-color: v.$color-purp;
+  border-color: v.$color-purple;
   border-bottom: 1px solid transparent;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -201,7 +201,7 @@
   font-family: 'Stolzl', sans-serif;
   font-weight: 300;
   line-height: normal;
-  color: v.$color-text;
+  color: v.$color-dark;
   text-align: left;
   appearance: none;
   -webkit-appearance: none;
@@ -225,7 +225,7 @@
   flex-shrink: 0;
   min-width: min-content;
   font-weight: 300;
-  color: v.$color-text;
+  color: v.$color-dark;
   white-space: nowrap;
 }
 
@@ -233,7 +233,7 @@
   flex-shrink: 0;
   min-width: min-content;
   font-weight: 300;
-  color: v.$color-text;
+  color: v.$color-dark;
   white-space: nowrap;
 }
 
@@ -251,7 +251,7 @@
   left: -1px;
   z-index: 21;
   box-sizing: border-box;
-  border: 1px solid v.$color-purp;
+  border: 1px solid v.$color-purple;
   border-top: 0;
   border-radius: 0 0 8px 8px;
   background: v.$color-white;
@@ -274,7 +274,7 @@
   font-family: 'Stolzl', sans-serif;
   font-weight: 300;
   line-height: normal;
-  color: v.$color-text;
+  color: v.$color-dark;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -294,7 +294,7 @@
 }
 
 .fieldShell:focus-within {
-  border-color: v.$color-purp;
+  border-color: v.$color-purple;
 }
 
 .contactControl {
@@ -327,7 +327,7 @@
 .contactHintText {
   flex-shrink: 0;
   font-weight: 300;
-  color: v.$color-text;
+  color: v.$color-dark;
   white-space: nowrap;
 }
 
@@ -335,7 +335,7 @@
   flex-shrink: 0;
   font-weight: 400;
   font-size: 1.1em;
-  color: v.$color-purp;
+  color: v.$color-purple;
 }
 
 .input {
@@ -347,14 +347,14 @@
   font-size: 14px;
   font-weight: 300;
   line-height: normal;
-  color: v.$color-text;
+  color: v.$color-dark;
   white-space: nowrap;
   background: transparent;
   box-shadow: none;
 }
 
 .input::placeholder {
-  color: v.$color-text;
+  color: v.$color-dark;
   opacity: 1;
 }
 
@@ -369,7 +369,7 @@
   width: 12px;
   height: 12px;
   margin-left: 0;
-  color: v.$color-purp;
+  color: v.$color-purple;
   transition: transform 0.2s ease;
 }
 
@@ -388,7 +388,7 @@
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
-  color: v.$color-text;
+  color: v.$color-dark;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
@@ -396,13 +396,13 @@
 
 @media (hover: hover) and (pointer: fine) {
   .submit:hover:not(:disabled) {
-    background: v.$color-purp;
+    background: v.$color-purple;
     color: v.$color-white;
   }
 }
 
 .submit:focus-visible:not(:disabled) {
-  background: v.$color-purp;
+  background: v.$color-purple;
   color: v.$color-white;
   outline: 2px solid v.$color-white;
   outline-offset: 2px;
@@ -443,7 +443,7 @@
   padding-bottom: 10px;
   font-style: normal;
   line-height: normal;
-  color: v.$color-text;
+  color: v.$color-dark;
   text-align: center;
 }
 

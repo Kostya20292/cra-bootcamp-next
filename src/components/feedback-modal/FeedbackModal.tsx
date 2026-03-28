@@ -74,9 +74,9 @@ const FeedbackModal = ({ isOpen, onClose, locale = 'en' }: FeedbackModalProps) =
     const root = dialogRef.current;
     if (!root) return [];
 
-    return Array.from(
-      root.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR),
-    ).filter((el) => el.tabIndex !== -1);
+    return Array.from(root.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)).filter(
+      (el) => el.tabIndex !== -1,
+    );
   }, []);
 
   useEffect(() => {

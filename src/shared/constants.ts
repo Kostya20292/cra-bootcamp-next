@@ -3,8 +3,6 @@ export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = 'en';
 
-export const SUPPORTED_LOCALES = LOCALES;
-
 export const FETCH_TIMEOUT = 60_000;
 
 export const API_BASE_URL = process.env.API_BASE_URL!;

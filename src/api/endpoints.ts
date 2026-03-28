@@ -9,14 +9,11 @@ import type {
 
 import { api } from './safeFetch';
 
-export const getBenefits = (locale: Locale) =>
-  api.get<BenefitsResponse>(`/${locale}/benefits`);
+export const getBenefits = (locale: Locale) => api.get<BenefitsResponse>(`/${locale}/benefits`);
 
-export const getTasks = (locale: Locale) =>
-  api.get<TasksResponse>(`/${locale}/tasks`);
+export const getTasks = (locale: Locale) => api.get<TasksResponse>(`/${locale}/tasks`);
 
-export const getMultiply = (locale: Locale) =>
-  api.get<MultiplyResponse>(`/${locale}/multiply`);
+export const getMultiply = (locale: Locale) => api.get<MultiplyResponse>(`/${locale}/multiply`);
 
 export const submitForm = (body: ContactFormRequest) =>
   api.post<ContactFormResponse>('/form', body);

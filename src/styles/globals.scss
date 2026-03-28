@@ -3,54 +3,6 @@
 @use 'reset';
 @use 'typography';
 
-@font-face {
-  font-family: 'HalvarBreit';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('../assets/fonts/HalvarBreit-Lt.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'HalvarBreit';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../assets/fonts/HalvarBreit-Rg.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'HalvarBreit';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('../assets/fonts/HalvarBreit-Md.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'HalvarBreit';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('../assets/fonts/HalvarBreit-Bd.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Stolzl';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('../assets/fonts/Stolzl-Light.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Stolzl';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('../assets/fonts/Stolzl-Regular.ttf') format('truetype');
-}
-
 html {
   box-sizing: border-box;
   overflow-x: hidden;
