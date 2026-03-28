@@ -67,3 +67,20 @@ $transition-base: 0.3s ease;
     padding-inline: $container-padding-mobile;
   }
 }
+
+@mixin full-page-slide-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100vh;
+  max-height: 100dvh;
+  flex-shrink: 0;
+  overflow: hidden;
+}
