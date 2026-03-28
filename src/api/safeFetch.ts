@@ -1,6 +1,6 @@
-import { createSafeFetch } from '@asouei/safe-fetch'
+import { createSafeFetch } from '@asouei/safe-fetch';
 
-import { FETCH_TIMEOUT } from '@/shared/constants'
+import { FETCH_TIMEOUT } from '@/shared/constants';
 
 export const api = createSafeFetch({
   baseURL: process.env.API_BASE_URL ?? '',
@@ -9,4 +9,4 @@ export const api = createSafeFetch({
   },
   timeoutMs: FETCH_TIMEOUT,
   totalTimeoutMs: FETCH_TIMEOUT,
-})
+});

@@ -1,1 +1,22 @@
+$breakpoint-mobile: 393px;
 $min-width-tablet: 640px;
+$breakpoint-laptop: 1280px;
+$breakpoint-desktop: 1440px;
+
+@mixin mobile {
+  @media (width < $breakpoint-laptop) {
+    @content;
+  }
+}
+
+@mixin laptop-up {
+  @media (width >= $breakpoint-laptop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (width >= $breakpoint-desktop) {
+    @content;
+  }
+}

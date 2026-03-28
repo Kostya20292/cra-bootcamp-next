@@ -1,2 +1,2 @@
-export { api } from './safeFetch'
-export { submitForm } from './endpoints'
+export { api } from './safeFetch';
+export { getBenefits, getMultiply, getTasks, submitForm } from './endpoints';

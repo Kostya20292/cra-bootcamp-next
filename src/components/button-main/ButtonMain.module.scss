@@ -1,0 +1,118 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+
+$border-w: 2px;
+$depth: 10px;
+
+.button {
+  display: inline-flex;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-yellow;
+    outline-offset: 3px;
+  }
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    .face {
+      background-color: $color-dark;
+      border-color: $color-yellow;
+      color: $color-yellow;
+
+      &::before,
+      &::after {
+        background-color: $color-dark;
+        border-color: $color-yellow;
+      }
+    }
+  }
+}
+
+.face {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: calc(100% - #{$depth});
+  height: calc(100% - #{$depth});
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1;
+  letter-spacing: 4.6px;
+  text-transform: uppercase;
+  background-color: $color-yellow;
+  border: $border-w solid $color-dark;
+  color: $color-dark;
+  transition:
+    background-color $transition-base,
+    border-color $transition-base,
+    color $transition-base;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    background-color: $color-yellow;
+    border-style: solid;
+    border-color: $color-dark;
+    transition:
+      background-color $transition-base,
+      border-color $transition-base;
+  }
+
+  &::before {
+    top: calc(100% + #{$border-w});
+    left: -$border-w;
+    right: -$border-w;
+    height: $depth;
+    border-width: 0 $border-w $border-w $border-w;
+    transform-origin: top left;
+    transform: skewX(45deg);
+  }
+
+  &::after {
+    left: calc(100% + #{$border-w});
+    top: -$border-w;
+    bottom: -$border-w;
+    width: $depth;
+    border-width: $border-w $border-w 0 0;
+    transform-origin: top left;
+    transform: skewY(45deg);
+  }
+}
+
+.sm {
+  width: 280px;
+  height: 82px;
+}
+
+.md {
+  width: 330px;
+  height: 82px;
+}
+
+.lg {
+  width: 420px;
+  height: 82px;
+}
+
+@include mobile {
+  .face {
+    font-size: 18px;
+    letter-spacing: 3.6px;
+  }
+
+  .sm,
+  .md,
+  .lg {
+    width: 250px;
+    height: 60px;
+  }
+}
