@@ -1,31 +1,67 @@
 @use 'variables' as v;
+@use 'breakpoints' as bp;
 
 .footer {
   display: none;
-  align-items: flex-end;
-  justify-content: space-between;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 
   @media (min-width: 768px) {
-    display: flex;
+    display: block;
   }
+}
+
+.footerMeasure {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  container-type: inline-size;
+  container-name: footer;
+}
+
+.footerBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 12px;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.footerBar nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .socialsList {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 6px 10px;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .socialLink {
   display: block;
-  padding: 10px;
+  padding: 8px 10px;
   font-weight: 700;
   font-size: 20px;
   line-height: 1;
   color: v.$color-yellow;
   text-transform: uppercase;
   text-decoration: underline;
+  text-decoration-skip-ink: none;
+  white-space: nowrap;
   transition: color 0.3s ease;
 
   &:hover,
@@ -41,15 +77,20 @@
 
 .scrollToTop {
   display: flex;
+  flex-shrink: 0;
   align-items: flex-end;
-  gap: 15px;
-  padding: 10px;
+  gap: 10px;
+  padding: 8px 10px;
   font-family: inherit;
   font-weight: 700;
   font-size: 20px;
   line-height: 1;
   color: v.$color-yellow;
   text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  background: none;
+  border: none;
   transition: color 0.3s ease;
 
   &:hover,
@@ -65,10 +106,123 @@
 
 .scrollToTopLabel {
   text-decoration: underline;
+  text-decoration-skip-ink: none;
 }
 
 .arrowIcon {
-  width: 30px;
+  width: 26px;
   flex-shrink: 0;
   transform: rotate(-90deg);
+}
+
+@container footer (max-width: 560px) {
+  .socialLink {
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+
+  .scrollToTop {
+    gap: 8px;
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+
+  .arrowIcon {
+    width: 22px;
+  }
+
+  .socialsList {
+    gap: 4px 8px;
+  }
+}
+
+@container footer (max-width: 420px) {
+  .footerBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .socialsList {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .scrollToTop {
+    align-self: flex-end;
+    padding: 6px;
+    font-size: 14px;
+    gap: 8px;
+  }
+
+  .socialLink {
+    padding: 6px;
+    font-size: 14px;
+  }
+
+  .arrowIcon {
+    width: 20px;
+  }
+}
+
+@container footer (max-width: 320px) {
+  .socialsList {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .socialLink {
+    padding: 4px 0;
+  }
+}
+
+@supports not (container-type: inline-size) {
+  @include bp.fullpage-narrow {
+    .socialLink {
+      padding: 6px 8px;
+      font-size: 16px;
+    }
+
+    .scrollToTop {
+      gap: 8px;
+      padding: 6px 8px;
+      font-size: 16px;
+    }
+
+    .arrowIcon {
+      width: 22px;
+    }
+
+    .socialsList {
+      gap: 4px 8px;
+    }
+  }
+
+  @media (width < 520px) {
+    .footerBar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .socialsList {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .scrollToTop {
+      align-self: flex-end;
+    }
+
+    .socialLink {
+      padding: 4px 0;
+      font-size: 14px;
+    }
+
+    .scrollToTop {
+      font-size: 14px;
+    }
+  }
 }
