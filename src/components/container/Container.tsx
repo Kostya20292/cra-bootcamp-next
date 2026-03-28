@@ -1,31 +1,27 @@
-// ===================== Container.tsx =====================
-
 import clsx from 'clsx';
-import type { HTMLAttributes, ReactNode } from 'react';
+import type {
+  ComponentPropsWithoutRef,
+  ElementType,
+  PropsWithChildren,
+  ReactElement,
+} from 'react';
 import styles from './Container.module.scss';
 
-interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
-  // Контент внутри контейнера
-  children: ReactNode;
-
-  // Позволяет менять HTML-тег (для семантики)
-  as?: 'div' | 'section' | 'main' | 'header' | 'footer';
+interface ContainerProps<TAs extends ElementType> {
+  as?: TAs;
 }
 
-export function Container({
-  children,
+type ContainerComponent = <TAs extends ElementType = 'div'>(
+  props: PropsWithChildren<ContainerProps<TAs> & ComponentPropsWithoutRef<TAs>>
+) => ReactElement | null;
 
-  // По умолчанию div
+export const Container: ContainerComponent = ({
   as: Component = 'div',
   className,
+  children,
   ...props
-}: ContainerProps) {
-  return (
-    <Component className={clsx(styles.container, className)} {...props}>
-      {children}
-    </Component>
-  );
-}
-
-// Container отвечает только за ширину и отступы,
-// не использовать для управления layout секции
+}) => (
+  <Component className={clsx(styles.container, className)} {...props}>
+    {children}
+  </Component>
+);
