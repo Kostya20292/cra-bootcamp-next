@@ -21,32 +21,36 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <nav aria-label="Social media links">
-        <ul className={styles.socialsList}>
-          {SOCIAL_LINKS.map(({ label, href }) => (
-            <li key={label}>
-              <a
-                className={styles.socialLink}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <div className={styles.footerMeasure}>
+        <div className={styles.footerBar}>
+          <nav aria-label="Social media links">
+            <ul className={styles.socialsList}>
+              {SOCIAL_LINKS.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    className={styles.socialLink}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-      <button
-        className={styles.scrollToTop}
-        type="button"
-        onClick={handleScrollToTop}
-        aria-label="Scroll to top"
-      >
-        <span className={styles.scrollToTopLabel}>Scroll to Top</span>
-        <ArrowIcon className={styles.arrowIcon} />
-      </button>
+          <button
+            className={styles.scrollToTop}
+            type="button"
+            onClick={handleScrollToTop}
+            aria-label="Scroll to top"
+          >
+            <span className={styles.scrollToTopLabel}>Scroll to Top</span>
+            <ArrowIcon className={styles.arrowIcon} />
+          </button>
+        </div>
+      </div>
     </footer>
   );
 };

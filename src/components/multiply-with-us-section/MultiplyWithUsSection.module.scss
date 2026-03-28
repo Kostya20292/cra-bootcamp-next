@@ -1,0 +1,668 @@
+@use 'variables' as v;
+@use 'breakpoints' as bp;
+
+.section {
+  @include v.full-page-slide-shell;
+  color: v.$color-white;
+  overflow-x: hidden;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  z-index: v.$z-background;
+  background-color: v.$color-dark-bg;
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: v.$gradient-bg;
+
+  @include bp.fullpage-narrow {
+    background:
+      linear-gradient(90deg, rgb(86 0 128) 0%, rgb(86 0 128) 100%),
+      linear-gradient(105.54deg, rgb(149 0 220) 3.37%, rgb(86 0 128) 56.37%, rgb(34 0 50) 102.54%);
+  }
+}
+
+.bgPatternWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout;
+}
+
+.bgPatternImg {
+  position: absolute;
+  top: -40px;
+  right: -11px;
+  left: auto;
+  width: min(1462px, 102%);
+  height: auto;
+  max-width: none;
+  opacity: 1;
+
+  @include bp.fullpage-narrow {
+    top: -28px;
+    right: auto;
+    left: -72px;
+    width: 1014px;
+    height: auto;
+  }
+}
+
+.inner {
+  position: relative;
+  z-index: v.$z-content;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  padding-top: 10px;
+  padding-bottom: 20px;
+
+  @include v.container;
+
+  @include bp.fullpage-wide-up {
+    padding-top: clamp(16px, 3.5vh, 56px);
+    padding-bottom: 16px;
+  }
+
+  @include bp.desktop {
+    padding-bottom: 16px;
+  }
+
+  @media (width >= bp.$breakpoint-fullpage-wide) and (width < bp.$breakpoint-laptop) {
+    padding-inline: 30px;
+  }
+
+  @include bp.fullpage-wide-short {
+    padding-top: clamp(12px, 2vh, 40px);
+    padding-bottom: 12px;
+  }
+}
+
+.mobileHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  margin-bottom: clamp(16px, 4vh, 32px);
+
+  @include bp.fullpage-wide-up {
+    display: none;
+  }
+
+  @media (height <= 640px) {
+    margin-bottom: 12px;
+  }
+}
+
+.mobileLogo {
+  width: 32px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.menuButton {
+  padding: 10px;
+  font-family: v.$font-primary;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  color: v.$color-yellow;
+  text-align: right;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  &:focus-visible {
+    outline: 2px solid v.$color-yellow;
+    outline-offset: 2px;
+  }
+}
+
+.eyebrowDesktop {
+  display: none;
+  margin: 0 0 20px;
+  font-family: v.$font-primary;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 0.9;
+  color: v.$color-yellow;
+  text-align: right;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+
+  @include bp.fullpage-wide-up {
+    display: block;
+    align-self: flex-end;
+  }
+
+  @include bp.desktop {
+    margin-bottom: 24px;
+    font-size: 40px;
+  }
+
+  @include bp.fullpage-wide-short {
+    margin-bottom: 12px;
+  }
+}
+
+.mainStack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(10px, 2vh, 16px);
+  flex: 1;
+  min-height: 0;
+
+  @include bp.fullpage-wide-up {
+    display: grid;
+    grid-template-columns: 511px 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+    column-gap: 18px;
+    row-gap: clamp(8px, 1.5vh, 16px);
+    align-items: stretch;
+  }
+
+  @include bp.desktop {
+    row-gap: clamp(8px, 1.2vh, 12px);
+    column-gap: 18px;
+    grid-template-columns: 563px 1fr;
+  }
+
+  @include bp.fullpage-wide-short {
+    row-gap: 8px;
+    column-gap: 14px;
+  }
+}
+
+.topRow {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2.5vh, 20px);
+  flex: 1;
+  min-height: 0;
+
+  @include bp.fullpage-narrow {
+    justify-content: center;
+
+    @media (height <= 700px) {
+      gap: 12px;
+      justify-content: flex-start;
+    }
+  }
+
+  @include bp.fullpage-wide-up {
+    display: contents;
+  }
+
+  @include bp.desktop {
+    gap: 18px;
+  }
+}
+
+.leftRail {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 0;
+
+  @include bp.fullpage-wide-up {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1 / -1;
+    width: 511px;
+    min-width: 0;
+    min-height: 0;
+    align-self: stretch;
+  }
+
+  @include bp.desktop {
+    width: 563px;
+  }
+}
+
+.pills {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+
+  @include bp.fullpage-wide-up {
+    position: relative;
+    z-index: 2;
+    gap: clamp(12px, 2.5vh, 30px);
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+
+  @include bp.fullpage-wide-short {
+    gap: 12px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    gap: 8px;
+  }
+}
+
+.pillActive,
+.pillOutline {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 361px;
+  padding: 18px 36px;
+  font-family: inherit;
+  cursor: pointer;
+  border-radius: v.$radius-pill;
+  transition:
+    background-color v.$transition-base,
+    border-color v.$transition-base,
+    color v.$transition-base;
+
+  @include bp.fullpage-wide-up {
+    gap: clamp(20px, 3vw, 40px);
+    max-width: none;
+    height: 80px;
+    min-height: 0;
+    padding-inline: 57px;
+    padding-block: 0;
+  }
+
+  @include bp.desktop {
+    height: 90px;
+  }
+
+  @include bp.fullpage-wide-short {
+    height: 72px;
+    padding-inline: 44px;
+    gap: 28px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    height: 58px;
+    padding-inline: 32px;
+    gap: 16px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid v.$color-yellow;
+    outline-offset: 3px;
+  }
+}
+
+.pillActive {
+  background-color: v.$color-yellow;
+  border: 2px solid v.$color-dark;
+  color: v.$color-dark;
+
+  @include bp.fullpage-wide-up {
+    border-width: 3px;
+  }
+}
+
+.pillOutline {
+  background-color: transparent;
+  border: 2px solid v.$color-yellow;
+  color: v.$color-yellow;
+
+  @include bp.fullpage-wide-up {
+    border-width: 3px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: rgb(254 233 125 / 12%);
+  }
+}
+
+.pillLabel {
+  font-family: v.$font-primary;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  white-space: nowrap;
+
+  @include bp.fullpage-wide-up {
+    font-size: 28px;
+  }
+
+  @include bp.desktop {
+    font-size: 32px;
+  }
+
+  @include bp.fullpage-wide-short {
+    font-size: 24px;
+    line-height: 1.1;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    font-size: 20px;
+    line-height: 1.1;
+  }
+}
+
+.pillArrow {
+  flex-shrink: 0;
+  width: 30px;
+  height: auto;
+  color: currentcolor;
+
+  @include bp.fullpage-wide-up {
+    width: 50px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    width: 36px;
+  }
+}
+
+.snakeWrap {
+  display: none;
+  pointer-events: none;
+  user-select: none;
+
+  @include bp.fullpage-wide-up {
+    position: absolute;
+    bottom: -20px;
+    left: -16px;
+    z-index: 0;
+    display: block;
+    width: 100%;
+    max-width: 631px;
+    margin: 0;
+    line-height: 0;
+  }
+
+  @include bp.fullpage-wide-short {
+    bottom: -12px;
+    max-width: min(631px, 52vw);
+    transform: scale(0.92);
+    transform-origin: left bottom;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    bottom: -8px;
+    max-width: min(520px, 48vw);
+    transform: scale(0.78);
+    transform-origin: left bottom;
+  }
+}
+
+.snakeImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left bottom;
+}
+
+.infoCard {
+  display: flex;
+  flex-shrink: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 361px;
+  min-height: 0;
+  padding: 20px;
+  margin-inline: auto;
+  background-image: v.$gradient-info-card;
+  border-radius: v.$radius-md;
+  box-sizing: border-box;
+
+  @include bp.fullpage-narrow {
+    align-items: stretch;
+    justify-content: flex-start;
+    max-height: min(470px, calc(100dvh - 220px));
+    padding: 20px 20px 32px;
+    margin-bottom: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+
+    @media (height <= 640px) {
+      max-height: min(420px, calc(100dvh - 180px));
+      padding: 14px 14px 24px;
+      margin-bottom: 12px;
+    }
+  }
+
+  @include bp.fullpage-wide-up {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-self: stretch;
+    width: 100%;
+    max-width: 757px;
+    min-width: 0;
+    min-height: 0;
+    max-height: 100%;
+    margin-inline: 0;
+    overflow: hidden;
+  }
+
+  @include bp.desktop {
+    max-width: 757px;
+  }
+
+  @include bp.fullpage-wide-short {
+    padding: 16px;
+  }
+}
+
+.infoInner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 331px;
+  margin-block: auto;
+
+  @include bp.fullpage-narrow {
+    margin-block: 0;
+    justify-content: flex-start;
+    min-height: min-content;
+    align-self: flex-start;
+  }
+
+  @include bp.fullpage-wide-up {
+    gap: clamp(10px, 1.8vh, 16px);
+    max-width: 560px;
+  }
+
+  @include bp.fullpage-wide-short {
+    gap: 10px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    gap: 8px;
+  }
+}
+
+.infoLead,
+.infoBody {
+  margin: 0;
+  font-family: v.$font-primary;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  color: v.$color-white;
+  text-align: center;
+
+  @include bp.fullpage-wide-up {
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  @include bp.fullpage-wide-short {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.dividerArrow {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+
+  @include bp.fullpage-wide-short {
+    height: 26px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    height: 22px;
+  }
+}
+
+.dividerIcon {
+  width: 30px;
+  height: auto;
+  color: v.$color-dark;
+  transform: rotate(90deg);
+
+  @include bp.fullpage-wide-up {
+    width: 50px;
+  }
+
+  @include bp.fullpage-wide-short {
+    width: 40px;
+  }
+
+  @include bp.fullpage-wide-very-short {
+    width: 30px;
+  }
+}
+
+.joinButton {
+  margin-top: 4px;
+}
+
+.infoInner .joinButton {
+  @include bp.fullpage-narrow {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 321px;
+    height: 72px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+
+    :global(span) {
+      font-size: 17px;
+      letter-spacing: 0.14em;
+      line-height: 1.1;
+      padding-inline: 8px;
+      text-wrap: balance;
+    }
+  }
+
+  @media (width <= bp.$breakpoint-mobile) {
+    height: 68px;
+
+    :global(span) {
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      padding-inline: 6px;
+    }
+  }
+}
+
+.footerRow {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  align-items: flex-end;
+  gap: 18px;
+
+  @include bp.fullpage-wide-up {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    width: 100%;
+    max-width: 757px;
+    min-width: 0;
+    box-sizing: border-box;
+    padding-top: 4px;
+  }
+
+  @include bp.fullpage-wide-short {
+    gap: 12px;
+  }
+}
+
+.footerSlot {
+  flex: 1 1 auto;
+  width: 100%;
+  min-width: 0;
+
+  @include bp.fullpage-wide-up {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  footer {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+}
+
+.eyebrowMobile {
+  flex-shrink: 0;
+  margin: clamp(12px, 3vh, 24px) 0 0;
+  font-family: v.$font-primary;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 0.9;
+  color: v.$color-yellow;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include bp.fullpage-wide-up {
+    display: none;
+  }
+
+  @media (height <= 640px) {
+    margin-top: 8px;
+    font-size: 18px;
+  }
+}
