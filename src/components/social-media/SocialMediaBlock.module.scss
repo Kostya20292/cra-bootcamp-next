@@ -1,0 +1,15 @@
+@use 'variables' as *;
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  svg {
+    width: 40px;
+    height: 40px;
+    path {
+      fill: #fff;
+    }
+  }
+}
