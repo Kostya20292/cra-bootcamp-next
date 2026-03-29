@@ -1,0 +1,13 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  max-width: $container-max-width;
+  padding-inline: $container-padding-mobile;
+  @media (min-width: $min-width-tablet) {
+    padding-inline: $container-padding;
+  }
+}
