@@ -68,10 +68,12 @@ const HeaderMobileDrawer = () => {
 
   useEffect(() => {
     if (!isMounted) return;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
+
+    const root = document.documentElement;
+    const previousOverflow = root.style.overflow;
+    root.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = previousOverflow;
+      root.style.overflow = previousOverflow;
     };
   }, [isMounted]);
 
