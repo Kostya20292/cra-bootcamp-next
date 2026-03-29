@@ -52,8 +52,11 @@
   align-items: center;
   justify-content: space-between;
   padding-block: 10px;
+  position: fixed;
+  width: 100%;
   @media (min-width: $min-width-tablet) {
     padding-block: 30px;
+    position: relative;
   }
   @include container();
 }
