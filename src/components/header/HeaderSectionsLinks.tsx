@@ -24,11 +24,11 @@ const HeaderSectionsLinks = ({ className, excludeMain, onNavigate, size }: Heade
   <>
     {NAVIGATION_ITEMS.filter(({ section }) => !(excludeMain && section === 'main')).map(
       ({ label, section }) => (
-      <li className={clsx(styles.section, className)} key={section}>
-        <NavAction as="button" type="button" size={size} onClick={() => onNavigate?.(section)}>
-          {label}
-        </NavAction>
-      </li>
+        <li className={clsx(styles.section, className)} key={section}>
+          <NavAction as="button" type="button" size={size} onClick={() => onNavigate?.(section)}>
+            {label}
+          </NavAction>
+        </li>
       ),
     )}
   </>

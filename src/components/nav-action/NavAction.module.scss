@@ -12,7 +12,7 @@
   text-decoration: underline;
   transition: color 0.3s ease;
   text-underline-offset: 2px;
-  @media(min-width: $breakpoint-mobile) {
+  @media (min-width: $breakpoint-mobile) {
     font-size: 20px;
   }
 
@@ -35,4 +35,3 @@
 .large {
   font-size: 32px;
 }
-

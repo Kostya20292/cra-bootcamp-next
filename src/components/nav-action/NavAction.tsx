@@ -15,7 +15,7 @@ interface NavActionProps<TAs extends ElementType> {
 }
 
 type NavActionComponent = <TAs extends ElementType = 'a'>(
-  props: NavActionProps<TAs> & Omit<ComponentPropsWithoutRef<TAs>, keyof NavActionProps<TAs>>
+  props: NavActionProps<TAs> & Omit<ComponentPropsWithoutRef<TAs>, keyof NavActionProps<TAs>>,
 ) => ReactElement | null;
 
 const NavAction: NavActionComponent = ({
