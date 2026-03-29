@@ -1,10 +1,5 @@
 import clsx from 'clsx';
-import type {
-  ComponentPropsWithoutRef,
-  ElementType,
-  PropsWithChildren,
-  ReactElement,
-} from 'react';
+import type { ComponentPropsWithoutRef, ElementType, PropsWithChildren, ReactElement } from 'react';
 import styles from './Container.module.scss';
 
 interface ContainerProps<TAs extends ElementType> {
@@ -12,7 +7,7 @@ interface ContainerProps<TAs extends ElementType> {
 }
 
 type ContainerComponent = <TAs extends ElementType = 'div'>(
-  props: PropsWithChildren<ContainerProps<TAs> & ComponentPropsWithoutRef<TAs>>
+  props: PropsWithChildren<ContainerProps<TAs> & ComponentPropsWithoutRef<TAs>>,
 ) => ReactElement | null;
 
 export const Container: ContainerComponent = ({
