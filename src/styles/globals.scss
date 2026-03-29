@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'breakpoints' as *;
 @use 'fonts';
 @use 'reset';
 @use 'typography';
@@ -40,6 +41,12 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+}
+main {
+  padding-top: 60px;
+  @media (min-width: $min-width-tablet) {
+    padding-top: 0;
+  }
 }
 
 ul,
