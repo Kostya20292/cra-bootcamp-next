@@ -1,0 +1,37 @@
+@use 'variables' as *;
+@use 'breakpoints' as *;
+
+.nav_action {
+  display: inline-block;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  color: $color-yellow;
+  text-transform: uppercase;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+  text-underline-offset: 2px;
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 20px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: #fff;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-yellow;
+    outline-offset: 2px;
+  }
+}
+
+.active {
+  color: #fff;
+  text-decoration-color: transparent;
+}
+
+.large {
+  font-size: 32px;
+}

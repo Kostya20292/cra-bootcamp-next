@@ -5,6 +5,11 @@ export const DEFAULT_LOCALE: Locale = 'en';
 
 export const FETCH_TIMEOUT = 60_000;
 
+export const BREAKPOINT_MOBILE = 393;
+export const MIN_WIDTH_TABLET = 640;
+export const BREAKPOINT_LAPTOP = 1280;
+export const BREAKPOINT_DESKTOP = 1440;
+
 export const API_BASE_URL = process.env.API_BASE_URL!;
 export const API_KEY = process.env.API_KEY!;
 export const API_KEY_HEADER = 'x-api-key';
@@ -23,3 +28,6 @@ export const SOCIAL_LINKS = {
   linkedin: '#',
   telegram: '#',
 } as const;
+
+export const SECTION_IDS = ['main', 'team', 'benefits', 'joinUs'] as const;
+export type SectionId = (typeof SECTION_IDS)[number];
