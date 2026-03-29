@@ -48,17 +48,19 @@
 }
 
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding-block: 10px;
   position: fixed;
   width: 100%;
+  top: 0;
   @media (min-width: $min-width-tablet) {
     padding-block: 30px;
     position: relative;
   }
-  @include container();
+  &_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .overlay {
